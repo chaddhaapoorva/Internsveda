@@ -1,0 +1,30 @@
+{% load static %}
+
+<header class="default-header">
+    <nav class="navbar navbar-expand-lg  navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <img style="height:60px; width:70px; margin-right:-20px" src="{%static 'img/sitelogo.png'%}" alt="" />
+        </a>
+        <a href="{% url 'index' %}"><h2 style="color:#E8762E">Internsveda</h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="lnr lnr-menu"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="internships.html">Internships</a></li>
+          <!--  <li><a href="courses.html">Placements</a></li> -->
+            <li><a href="contacts.html">Contact</a></li>
+            <li><a href="accounts/login/">Login</a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- ================ End Header Area ================= -->

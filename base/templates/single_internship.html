@@ -1,0 +1,302 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+.box-internships-img img{
+  height:340px; 
+  width:600px;
+}
+.Certification {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    margin-top: 30px; 
+}
+
+.Certification img {
+    height: 50vh;
+    width: auto; 
+    display: block; 
+    margin: 0 10px; 
+    margin-top: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+/* Mobile view */
+@media (max-width: 780px) {
+  .box-internships-img{
+    align-items: center;
+  }
+  .box-internships-img img{
+    height:280px; 
+    width:380px;
+  }
+    .Certification {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .Certification img {
+        height: 40vh;
+        width: 100%; /* Ensure the image fills the container width */
+        margin: 10px 0;
+    }
+}
+
+</style>
+
+<!-- ================ start banner Area ================= -->
+  <section class="banner-area">
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-12 banner-right">
+             <h2 style="color:#fff">{{ internships.title }}</h2>
+            <br>
+            <div class="link-nav">
+              <span class="box">
+                <a href="{% url 'index' %}">Home</a>
+                <i class="lnr lnr-arrow-right"></i>
+                <a href=""></a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- ================ End banner Area ================= -->
+
+  <!-- ================ Start Feature Area ================= -->
+  <section class="feature-area" style="margin-bottom:16px;">
+    <div class="container-fluid">
+      <div class="feature-inner row">
+        <div class="col-lg-2 col-md-6">
+          <div class="feature-item d-flex">
+            <i class="ti-book"></i>
+            <div class="ml-20">
+              <h4>New Classes</h4>
+              <p>
+                In the history of modern astronomy, there is probably no one greater leap forward.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <div class="feature-item d-flex">
+            <i class="ti-cup"></i>
+            <div class="ml-20">
+              <h4>Top Courses</h4>
+              <p>
+                In the history of modern astronomy, there is probably no one greater leap forward.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <div class="feature-item d-flex border-right-0">
+            <i class="ti-desktop"></i>
+            <div class="ml-20">
+              <h4>Full E-Books</h4>
+              <p>
+                In the history of modern astronomy, there is probably no one greater leap forward.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================ End Feature Area ================= -->
+
+  
+   <!--================ Start Course Details Area =================-->
+   <section class="course-details-area">
+    <div class="container">
+            <h1 style="margin-bottom:40px; text-align:center">{{internships.title}}</h1> 
+            <span class="mb-1 d-inline-block text-gray-600">{{internships.category.name}}</span>
+            <div class="row">
+            <div class="col-lg-8 course-details-left">
+                <div class="main-image">
+                  <div class="box-internships-img">
+                    <img src="{{internships.featured_image}}" alt="">
+                  </div>
+                
+                  <div class="content-wrapper" style="margin-top:20px;">
+                    <h2 class="title">Objectives</h2>
+                    <div class="content" style="margin-top:20px;">
+                      {{ internships.description }}
+                    </div> 
+                </div>
+
+                     <h3 class="title" style="margin-top:20px;">Learning Outcome's</h3>
+                      <div class="content" style="margin-top:20px;">
+                        <ol class="course-list">
+                          {% for outcome in internships.learning_outcomes_set.all%}
+                              <li class="justify-content-between d-flex">{{ outcome.points }}</li>
+                          {% endfor %}
+                      </ol>
+                      </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 right-contents">
+                <ul>
+                    <li class="justify-content-between d-flex">
+                            <p>Trainer’s Name</p>
+                            <span class="or"> {{ internships.author }}</span>
+                    </li>
+                    <li class="justify-content-between d-flex">
+                      <p>Internships Module's</p>
+                      <span class="or"> {{ internships.modules }}</span>
+                    </li>
+                </ul>
+                <a href="contacts.html" class="btn text-uppercase enroll" style="color:#fff;">Enroll the course</a>
+
+                <h4 class="title" style="margin-top:20px; margin-bottom:10px">Reviews By Our Interns</h4>
+            
+                    <div class="comments-area mb-30">
+                        <div class="comment-list">
+                            <div class="single-comment single-reviews justify-content-between d-flex">
+                                <div class="user justify-content-between d-flex">
+                                    <div class="desc">
+                                        <h5 style="margin-bottom:5px"><a>Kira Gurawalia</a>
+                                            <div class="star">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                            </div>
+                                        </h5>
+                                        <p class="comment">
+                                          Before joining the bootcamp, I’ve never written a line of code. I needed some structure from professionals who can help me learn programming step by step. I was encouraged to enroll by a former student of theirs who can only say wonderful things about the program. The entire curriculum and staff did not disappoint. They were very hands-on and I never had to wait long for assistance. The agile team project, in particular, was outstanding.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-list">
+                            <div class="single-comment single-reviews justify-content-between d-flex">
+                                <div class="user justify-content-between d-flex">
+                                   
+                                    <div class="desc">
+                                      <h5 style="margin-bottom:5px"><a>Daniel Clifford</a>
+                                            <div class="star">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                            </div>
+                                        </h5>
+                                        <p class="comment">
+                                          I was an EMT for many years before I joined the bootcamp. I’ve been looking to make a transition and have heard some people who had an amazing experience here. I signed up for the free intro course and found it incredibly fun! I enrolled shortly thereafter. The next 12 weeks was the best - and most grueling - time of my life. Since completing the course, I’ve successfully switched careers, working as a Software Engineer at a VR startup.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-list">
+                            <div class="single-comment single-reviews justify-content-between d-flex">
+                                <div class="user justify-content-between d-flex">
+                                    
+                                    <div class="desc">
+                                      <h5 style="margin-bottom:5px"><a>Megha Rana</a>
+                                            <div class="star">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                            </div>
+                                        </h5>
+                                        <p class="comment">
+                                          I started as a total newbie with virtually no coding skills. I now work as a mobile engineer for a big company. This was one of the best investments I’ve made in myself.
+                                        </p>
+                                    </div>
+                                </div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================ End Course Details Area =================-->
+
+  <!-- ================ Start Certification Area ================= -->
+  <h1 style="text-align:center; margin-top: 30px;">Sample Certificates</h1>
+  <section class="Certification">
+    <div>
+        <img src="{% static 'img/internships/certificate1.png' %}" alt="Certificate 1">
+    </div>
+    <div>
+        <img src="{% static 'img/internships/certificate2.png' %}" alt="Certificate 2">
+    </div>
+</section>
+
+  <!-- ================ End Certification Area ================= -->
+  
+    <!-- ================ Start Pricing Area ================= -->
+    <div class="pricing-table">
+      <div class="details">
+        <h1>Explore Our Pricing</h1>
+      </div>
+      <div class="grid">
+        <div class="box">
+          <h5 class="title">Self-Placed</h5>
+          <div class="price"><b>₹3,999</b></div>
+          <div class="features">
+            <div>Recorded Classes</div>
+            <div>1 Major & 1 Minor projects</div>
+            <div>Exams</div>
+            <div>Certifications</div>
+            <div>Mock Interviews</div>
+          </div>
+          <div class="button">
+            <a href="https://rzp.io/l/w7AH5UjNbO"><button>Pay Here</button></a>
+          </div>
+        </div>
+        <div class="box advance">
+          <h5 class="title">Advance</h5>
+          <div class="price"><b>₹10,000</b></div>
+          <div class="features">
+            <div>First 2 month live + recorded</div>
+            <div>Last 2 month recorded trainings</div>
+            <div>From basic to advance level</div>
+            <div>1 major and 1 minor Project(both phase)</div>
+            <div>Examinations</div>
+            <div>Mock Interviews</div>
+          </div>
+          <div class="button">
+            <a href="https://rzp.io/l/y213tavs0"><button>Pay Here</button></a>
+          </div>
+        </div>
+        <div class="box">
+          <h5 class="title">Mentor-Led</h5>
+          <div class="price"><b>₹5,999</b></div>
+          <div class="features">
+            <div>Live + Recordings</div>
+            <div>1 Major & 1 Minor projects</div>
+            <div>Exams</div>
+            <div>Certified Certification</div>
+            <div>Mock Interviews</div>
+          </div>
+          <div class="button">
+            <a href="https://rzp.io/l/WXtQZFG6mM"><button>Pay Here</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ================ End Pricing Area ================= -->
+    <br>
+    <br>
+
+
+    {% endblock %}
+
+    

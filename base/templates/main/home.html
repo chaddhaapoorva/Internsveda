@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+  {% load static %}
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/fav.png" />
+  <!-- Author Meta -->
+  <meta name="author" content="colorlib" />
+  <!-- Meta Description -->
+  <meta name="description" content="" />
+  <!-- Meta Keyword -->
+  <meta name="keywords" content="" />
+  <!-- meta character set -->
+  <meta charset="UTF-8" />
+  <!-- Site Title -->
+  <title>Internsveda</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Roboto:400,400i,500,700" rel="stylesheet" />
+  <!--
+      CSS
+      =============================================
+    -->
+  <link rel="stylesheet" href="{% static 'css/linearicons.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+{% load static %}
+<body>  
+<header class="default-header">
+    <nav class="navbar navbar-expand-lg  navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img style="height:60px; width:70px; margin-right:-20px" src="{%static 'img/sitelogo.png'%}" alt="" />
+        </a>
+        <h2 style="color:#E8762E">Internsveda</h2>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="lnr lnr-menu"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="enrolledinternship.html">Enrolled Internships</a></li>
+          <!--  <li><a href="courses.html">Placements</a></li> -->
+            <li><a href="{% url 'profile'%}">My, Account</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- ================ End Header Area ================= -->
+
+ <!-- ================ start banner Area ================= -->
+ <section class="home-banner-area">
+  <div class="container">
+    <div class="row justify-content-center fullscreen align-items-center">
+      <div class="col-lg-5 col-md-8 home-banner-left">
+        <h2 class="text-white">
+          Best Training and Internship
+        </h2>
+        <h1 style="color:#E8762E">
+          INTERNSVEDA
+        </h1>
+        <p class="mx-auto text-white  mt-20 mb-40">
+          We offer transformative training programs and live courses, empowering individuals to upskill 
+          and excel in their careers. Dive into practical learning with industry experts for a brighter 
+          professional future.
+        </p>
+        <div class="btn-main-head">
+          <button class="btn text-uppercase">Explore</button>
+        </div>
+      </div>
+      <div class="offset-lg-2 col-lg-5 col-md-12 home-banner-right">
+        <img class="img-fluid" src="{% static 'img/header-img.png' %}" alt="" />
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================ End banner Area ================= -->
+
+  <!-- ================ Start Feature Area ================= -->
+  <section class="feature-area">
+    <div class="container-fluid">
+      <div class="feature-inner row">
+        <div class="col-lg-2 col-md-6">
+          <div class="feature-item d-flex">
+            <i class="ti-book"></i>
+            <div class="ml-20">
+              <h4>Latest Technology</h4>
+              <p>
+                We help you learn latest trends in current technological field.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <div class="feature-item d-flex">
+            <i class="ti-cup"></i>
+            <div class="ml-20">
+              <h4>Best Internships</h4>
+              <p>
+                We believe in the approach of learning to implementation.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <div class="feature-item d-flex border-right-0">
+            <i class="ti-desktop"></i>
+            <div class="ml-20">
+              <h4>Perfect Modules</h4>
+              <p>
+                Our modules are designed as per the user requirement.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================ End Feature Area ================= -->
+  
+  <!-- ================ Start Programs Area ================= -->
+  <section class="categories">
+    <div class="container categories-container">
+      <div class="categories_left">
+        <h1>Explore Our Other
+          Internship Programs</h1>
+          <p>Discover diverse internship opportunities tailored to your interests and career goals. Explore hands-on experiences and valuable learning opportunities with our internship programs.</p>
+      </div>
+      <div class="categories_right">
+        <article class="category">
+          <span class="category_icon"><img src="{%static 'img/web.png'%}" alt="" style="height:50px"></span>
+          <h5>Website Development</h5>
+          <p>Embark on a website development journey with our website development course. Learn html, css, javascript and Node.js to build dynamic, efficient web applications. Elevate your skills for a thriving tech career.</p>
+        </article>
+        <article class="category">
+          <span class="category_icon"><img src="{%static 'img/data.png'%}" alt="" style="height:50px"></span>
+          <h5>Data Science</h5>
+          <p>Dive into the world of Data Science, where analytics and insights meet. Uncover the power of data through courses covering statistics, machine learning, and data visualization for informed decision-making.  </p>
+        </article>
+        <article class="category">
+          <span class="category_icon"><img src="{%static 'img/programming.png'%}" alt="" style="height:50px"></span>
+          <h5>Programming</h5>
+          <p>Excel in programming with our diverse courses. From fundamental languages like Python and Java to advanced topics in data structures and algorithms, our programs equip you with the skills for coding excellence.</p>
+        </article>
+        <article class="category">
+          <span class="category_icon"><img src="{%static 'img/dataentry.png'%}" alt="" style="height:50px"></span>
+          <h5>Data Entry</h5>
+          <p>Hone your data entry skills with our specialized courses. Learn efficient data management, keyboarding techniques, and software proficiency, ensuring precision and speed in handling diverse data entry tasks for enhanced productivity.</p>
+        </article>
+        <article class="category">
+          <span class="category_icon"><img src="{%static 'img/ai.png'%}" alt="" style="height:50px"></span>
+          <h5>AI/ML</h5>
+          <p>Delve into the future of technology with our AI/ML courses. Explore machine learning algorithms, neural networks, and deep learning, gaining expertise to develop intelligent solutions that drive innovation in artificial intelligence.</p>
+        </article>
+        <article class="category">
+          <span class="category_icon"><img src="{%static 'img/courses.png'%}" alt="" style="height:50px"></span>
+          <h5>Core Courses</h5>
+          <p>Explore fundamental Core Courses in Computer Science, covering Operating Systems and Database Management Systems. Gain essential knowledge for a strong foundation in computer science and software development.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- ================ End Programs Area ================= -->
+ <br>
+<br>
+ <a href="https://wa.me/+918847010952?text=I'm%20interested%20in%20to%chat" style="position:fixed; bottom:05% !important; right: 03% !important;">
+    <img src="{% static 'img/whatsapp.png'%}" alt="" width="60px"  style="border-radius: 18px;">
+  </a>
+
+  <!-- ================ start footer Area ================= -->
+  <footer class="footer-area section-gap">
+    <div class="footer-bottom row align-items-center">
+        <p class="footer-text m-0 col-lg-8 col-md-12" style="padding-left:3%; padding-top:1.2%; padding-bottom:1.2%">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is build by Apoorva Chaddha</p>
+        <div class="col-lg-4 col-md-12 footer-social">
+            <a href="https://www.linkedin.com/company/internsveda/"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+    </div>
+</div>
+</footer>
+<!-- ================ End footer Area ================= -->
+<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+  <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>   
+  <script src="{% static 'js/main.js' %}"></script>
+ </body>
+</html>

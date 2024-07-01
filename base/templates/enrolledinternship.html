@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+  {% load static %}
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/fav.png" />
+  <!-- Author Meta -->
+  <meta name="author" content="colorlib" />
+  <!-- Meta Description -->
+  <meta name="description" content="" />
+  <!-- Meta Keyword -->
+  <meta name="keywords" content="" />
+  <!-- meta character set -->
+  <meta charset="UTF-8" />
+  <!-- Site Title -->
+  <title>Internsveda</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Roboto:400,400i,500,700" rel="stylesheet" />
+  <!--
+      CSS
+      =============================================
+    -->
+  <link rel="stylesheet" href="{% static 'css/linearicons.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+{% load static %}
+<body>  
+<header class="default-header">
+    <nav class="navbar navbar-expand-lg  navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img style="height:60px; width:70px; margin-right:-20px" src="{%static 'img/sitelogo.png'%}" alt="" />
+        </a>
+        <h2 style="color:#E8762E">Internsveda</h2>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="lnr lnr-menu"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="{% url 'enrolledinternship' %}">Enrolled Internships</a></li>
+          <!--  <li><a href="courses.html">Placements</a></li> -->
+            <li><a href="{% url 'profile'%}">My, Account</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- ================ End Header Area ================= -->
+  
+
+  <style>
+    .internships-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+      gap: 1.5rem;
+      align-items: center;
+      cursor: pointer;
+      text-align: center;
+      margin-top:1.5rem;
+    }
+    .box-internships img{
+      height : 260px;
+      width : 240px;
+      margin-bottom: 30px;
+    }
+    .box-internships {
+      padding: 25px 60px;
+      border: 1px solid #979fad;
+      border-radius: 20px;
+      box-shadow: -11.729px -11.729px 32px rgb(255 255 255 / 15%);
+      transition: all .40s ease;
+      height: 540px;
+      width: 360px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%; 
+    }
+    .box-internships:hover{
+      transform: translate(-15px);
+    }
+    .box-internships h3{
+      margin-bottom:20px;
+    }
+    .box-internships span{
+      color: #979fad;
+    }
+    .box-internships button {
+      height: 42px;
+      width: 180px;
+      border:none;
+      color:#fff;
+      background:#E8762E;
+      border-radius: 20px;
+    }
+    .box-internships button:hover {
+      color:#fff; 
+      background:linear-gradient(#7c32ff,#c738d8);
+    }
+    
+  </style>
+  
+  <!-- ================ start banner Area ================= -->
+    <section class="banner-area">
+        <div class="container">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-lg-12 banner-right">
+              <h1 class="text-white">
+                Enrolled Internships
+              </h1>
+              <br>
+              <div class="link-nav">
+                <span class="box">
+                  <a href="{% url 'index' %}">Home </a>
+                  <i class="lnr lnr-arrow-right"></i>
+                  <a href="internships.html">Enrolled Internships</a>
+              
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!-- ================ End banner Area ================= -->
+  
+    <!-- ================ Start Feature Area ================= -->
+    <section class="feature-area" style="margin-bottom:16px;">
+      <div class="container-fluid">
+        <div class="feature-inner row">
+          <div class="col-lg-2 col-md-6">
+            <div class="feature-item d-flex">
+              <i class="ti-book"></i>
+              <div class="ml-20">
+                <h4>New Classes</h4>
+                <p>
+                  In the history of modern astronomy, there is probably no one greater leap forward.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <div class="feature-item d-flex">
+              <i class="ti-cup"></i>
+              <div class="ml-20">
+                <h4>Top Courses</h4>
+                <p>
+                  In the history of modern astronomy, there is probably no one greater leap forward.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <div class="feature-item d-flex border-right-0">
+              <i class="ti-desktop"></i>
+              <div class="ml-20">
+                <h4>Full E-Books</h4>
+                <p>
+                  In the history of modern astronomy, there is probably no one greater leap forward.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ================ End Feature Area ================= -->
+  
+    
+    <!-- ================ Start Internships Area ================= -->
+    <section class="internships_categories pt-5 pb-9 py-md-11 bg-white" id="internships_categories">
+      <div class="container container-wd">
+        <div class="row align-items-end mb-7">
+          <div class="col-xl mb-5 mb-xl-0">
+            <h1 class="mb-1">Enrolled Internships</h1> </div>
+          <div class="col-xl-auto">
+            <!-- Nav -->
+          </div>
+        </div>
+    
+        <div class="other-feature-area" aria-labelledby="pills-all-tab">
+          <div class="internship-container">
+            <div class="feature-inner row">
+              <div class="internships-container col-lg-12" data-flickity='{"pageDots": true, "prevNextButtons": true, "cellAlign": "left", "wrapAround": true, "imagesLoaded": true}'>
+                {% for i in internships %}
+                <div class="box-internships">
+                    <img src="{{ i.featured_image.url }}" alt="">
+                    <a href="{{ i.get_url_ec }}"><span class="mb-1 d-inline-block text-gray-800">{{ i.category.name }}</span></a>
+                    <h3>{{ i.title }}</h3>
+                    <a href="{{ i.get_url_ec }}"><button>Book Now</button></a>
+                </div>
+                {% endfor %}
+                      
+                  </div>
+              </div>
+          </div>
+        </div>
+    </section>
+    <!-- ================ End Internships Area ================= -->
+    <br>
+    <br>
+    <br>
+  <a href="https://wa.me/+918847010952?text=I'm%20interested%20in%20to%chat" style="position:fixed; bottom:05% !important; right: 03% !important;">
+    <img src="{% static 'img/whatsapp.png'%}" alt="" width="60px"  style="border-radius: 18px;">
+  </a>
+ <!-- ================ start footer Area ================= -->
+ <footer class="footer-area section-gap">
+  <div class="footer-bottom row align-items-center">
+      <p class="footer-text m-0 col-lg-8 col-md-12" style="padding-left:3%; padding-top:1.2%; padding-bottom:1.2%">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is build by Apoorva Chaddha</p>
+      <div class="col-lg-4 col-md-12 footer-social">
+        <a href="https://www.linkedin.com/company/internsveda/"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+      </div>
+  </div>
+</div>
+</footer>
+<!-- ================ End footer Area ================= -->
+<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>   
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

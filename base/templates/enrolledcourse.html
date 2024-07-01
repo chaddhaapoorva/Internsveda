@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+  {% load static %}
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/fav.png" />
+  <!-- Author Meta -->
+  <meta name="author" content="colorlib" />
+  <!-- Meta Description -->
+  <meta name="description" content="" />
+  <!-- Meta Keyword -->
+  <meta name="keywords" content="" />
+  <!-- meta character set -->
+  <meta charset="UTF-8" />
+  <!-- Site Title -->
+  <title>Internsveda</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Roboto:400,400i,500,700" rel="stylesheet" />
+  <!--
+      CSS
+      =============================================
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <link rel="stylesheet" href="{% static 'css/linearicons.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body>  
+<header class="default-header">
+    <nav class="navbar navbar-expand-lg  navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img style="height:60px; width:70px; margin-right:-20px" src="{%static 'img/sitelogo.png'%}" alt="" />
+        </a>
+        <h2 style="color:#E8762E">Internsveda</h2>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="lnr lnr-menu"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li><a href="{% url 'home'%}">Home</a></li>
+            <li><a href="{% url 'enrolledinternship' %}">Enrolled Internships</a></li>
+          <!--  <li><a href="courses.html">Placements</a></li> -->
+            <li><a href="{% url 'profile'%}">My, Account</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- ================ End Header Area ================= -->
+  <style>
+    .box-internships-img img{
+      height:340px; 
+      width:600px;
+    }
+    .Certification {
+        display: flex;
+        justify-content: space-around; 
+        align-items: center;
+        margin-top: 30px; 
+    }
+    
+    .Certification img {
+        height: 50vh;
+        width: auto; 
+        display: block; 
+        margin: 0 10px; 
+        margin-top: 20px;
+        border: 1px solid #ccc; 
+        border-radius: 5px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    }
+    
+    /* Mobile view */
+    @media (max-width: 780px) {
+      .box-internships-img{
+        align-items: center;
+      }
+      .box-internships-img img{
+        height:280px; 
+        width:380px;
+      }
+        .Certification {
+            flex-direction: column;
+            width: 100%;
+        }
+    
+        .Certification img {
+            height: 40vh;
+            width: 100%; /* Ensure the image fills the container width */
+            margin: 10px 0;
+        }
+    }
+    
+
+    .course-curriculum {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+    
+    .course-curriculum h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .course-curriculum ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    .module {
+      margin-bottom: 20px;
+    }
+    
+    .module-title {
+      font-size: 26px;
+      cursor: pointer;
+      color: #007bff; 
+    }
+    
+    .topics {
+      display: none;
+    }
+    
+    .module.open .topics {
+      display: block;
+    }
+    /* Modal styles */
+    .modal-trigger {
+      display: none;
+    }
+    
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000; /* Adjust the z-index as needed */
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .modal-trigger:checked + .modal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal-content {
+      width: 80%;
+      max-width: 800px;
+    }
+    
+    .modal video {
+      width: 100%;
+      height: auto;
+    }
+    
+    .modal .close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+    
+    /* Only allow subsequent videos to be played if the previous one has been watched */
+    .modal-trigger:not(:checked) + .modal {
+      pointer-events: none;
+    }
+
+.video-info {
+  display: flex;
+  align-items: center;
+}
+
+/* Style the play button label */
+.play-video {
+  cursor: pointer;
+  margin-left: auto; 
+
+}
+
+/* Style the play icon */
+.play-video i {
+  font-size: 16px; 
+}
+
+  </style>
+    
+    <!-- ================ start banner Area ================= -->
+      <section class="banner-area">
+          <div class="container">
+            <div class="row justify-content-center align-items-center">
+              <div class="col-lg-12 banner-right">
+                 <h2 style="color:#fff">{{ internships.title }}</h2>
+                <br>
+                <div class="link-nav">
+                  <span class="box">
+                    <a href="{% url 'index' %}">Home</a>
+                    <i class="lnr lnr-arrow-right"></i>
+                    <a href=""></a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      <!-- ================ End banner Area ================= -->
+    
+      <!-- ================ Start Feature Area ================= -->
+      <section class="feature-area" style="margin-bottom:16px;">
+        <div class="container-fluid">
+          <div class="feature-inner row">
+            <div class="col-lg-2 col-md-6">
+              <div class="feature-item d-flex">
+                <i class="ti-book"></i>
+                <div class="ml-20">
+                  <h4>New Classes</h4>
+                  <p>
+                    In the history of modern astronomy, there is probably no one greater leap forward.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+              <div class="feature-item d-flex">
+                <i class="ti-cup"></i>
+                <div class="ml-20">
+                  <h4>Top Courses</h4>
+                  <p>
+                    In the history of modern astronomy, there is probably no one greater leap forward.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+              <div class="feature-item d-flex border-right-0">
+                <i class="ti-desktop"></i>
+                <div class="ml-20">
+                  <h4>Full E-Books</h4>
+                  <p>
+                    In the history of modern astronomy, there is probably no one greater leap forward.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ================ End Feature Area ================= -->
+    
+      
+    
+     <!--================ Start Course Details Area =================-->
+     <section class="course-details-area">
+      <div class="container">
+              <h1 style="margin-bottom:40px; text-align:center">{{internships.title}}</h1> 
+              <span class="mb-1 d-inline-block text-gray-600">{{internships.category.name}}</span>
+              <div class="row">
+              <div class="col-lg-8 course-details-left">
+                  <div class="main-image">
+                    <div class="box-internships-img">
+                      <img src="{{ internships.featured_image.url }}" alt="">
+                    </div>
+                  
+                    <div class="content-wrapper" style="margin-top:20px;">
+                      <h2 class="title">Objectives</h2>
+                      <div class="content" style="margin-top:20px;">
+                        {{ internships.description }}
+                      </div> 
+                  </div>
+  
+                       <h3 class="title" style="margin-top:20px;">Learning Outcome's</h3>
+                        <div class="content" style="margin-top:20px;">
+                          <ol class="course-list">
+                            {% for outcome in learning_outcomes %}
+                        <li class="justify-content-between d-flex">{{ outcome.points }}</li>
+                             {% endfor %}
+                        </ol>
+                        </div>
+                  </div>
+              </div>
+  
+  
+              <div class="col-lg-4 right-contents">
+                  <ul>
+                      <li class="justify-content-between d-flex">
+                              <p>Trainer’s Name</p>
+                              <span class="or"> {{ internships.author }}</span>
+                      </li>
+                      <li class="justify-content-between d-flex">
+                        <p>Internships Module's</p>
+                        <span class="or"> {{ internships.modules }}</span>
+                      </li>
+                  </ul>
+                    <hr style="border-top: 1px solid;">
+                  <h3 class="title" style="margin-top:20px; margin-bottom:10px">Curriculam</h3>
+                  {% for lesson in internships.lesson_set.all %}
+                  <ul class="curriculum-list" style="font-size:20px; margin-bottom:10px;">
+                      <li>
+                          <details>
+                              <summary style="margin-bottom:10px;">{{ lesson.name }}</summary>
+                              <ul class="hidden">
+                                  {% for video in lesson.video_set.all %}
+                                      <li style="margin-bottom:6px;">
+                                          <div class="video-info">
+                                              <p style="padding-top:6px">{{ video.title }}</p>
+                                              <label for="video{{ video.pk }}" class="play-video">
+                                                  <i class="fas fa-play"></i> <!-- Font Awesome play icon -->
+                                              </label>
+                                          </div>
+                                          <input type="checkbox" id="video{{ video.pk }}" class="modal-trigger">
+                                          <!-- Modal container -->
+                                          <div class="modal">
+                                              <label for="video{{ video.pk }}" class="close">&times;</label>
+                                              <div class="modal-content">
+                                                  <video id="modal-video{{ video.pk }}" width="100%" height="100%" controls controlsList="nodownload">
+                                                      <source src="{{ video.video_file.url }}" type="video/mp4">
+                                                      Your browser does not support the video tag.
+                                                  </video>
+                                              </div>
+                                          </div>
+                                      </li>
+                                  {% endfor %}
+                              </ul>
+                          </details>
+                      </li>
+                  </ul>
+              {% endfor %}
+              
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!--================ End Course Details Area =================-->  <br>
+    <br>
+  <br>
+
+    <a href="https://wa.me/+918847010952?text=I'm%20interested%20in%20to%chat" style="position:fixed; bottom:05% !important; right: 03% !important;">
+      <img src="{% static 'img/whatsapp.png'%}" alt="" width="60px"  style="border-radius: 18px;">
+    </a>
+   <!-- ================ start footer Area ================= -->
+   <footer class="footer-area section-gap">
+    <div class="footer-bottom row align-items-center">
+        <p class="footer-text m-0 col-lg-8 col-md-12" style="padding-left:3%; padding-top:1.2%; padding-bottom:1.2%">
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is build by Apoorva Chaddha</p>
+        <div class="col-lg-4 col-md-12 footer-social">
+          <a href="https://www.linkedin.com/company/internsveda/"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+    </div>
+  </div>
+  </footer>
+  <!-- ================ End footer Area ================= -->
+  <script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+  <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>   
+  <script src="{% static 'js/main.js' %}"></script>
+  </body>
+  </html>

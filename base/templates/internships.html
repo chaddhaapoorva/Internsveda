@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+  .internships-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    gap: 1.5rem;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    margin-top:4rem;
+  }
+  .box-internships img{
+    height : 260px;
+    width : 240px;
+    margin-bottom: 30px;
+  }
+  .box-internships {
+    padding: 25px 60px;
+    border: 1px solid #979fad;
+    border-radius: 20px;
+    box-shadow: -11.729px -11.729px 32px rgb(255 255 255 / 15%);
+    transition: all .40s ease;
+    height: 540px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%; 
+  }
+  .box-internships:hover{
+    transform: translate(-15px);
+  }
+  .box-internships h3{
+    margin-bottom:20px;
+  }
+  .box-internships span{
+    color: #979fad;
+  }
+  .box-internships button {
+    height: 42px;
+    width: 180px;
+    border:none;
+    color:#fff;
+    background:#E8762E;
+    border-radius: 20px;
+  }
+  .box-internships button:hover {
+    color:#fff; 
+    background:linear-gradient(#7c32ff,#c738d8);
+  }
+  
+
+</style>
+
+<!-- ================ start banner Area ================= -->
+  <section class="banner-area">
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-12 banner-right">
+            <h1 class="text-white">
+              Internships
+            </h1>
+            <br>
+            <div class="link-nav">
+              <span class="box">
+                <a href="{% url 'index' %}">Home </a>
+                <i class="lnr lnr-arrow-right"></i>
+                <a href="internships.html">Internships</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- ================ End banner Area ================= -->
+
+  <!-- ================ Start Feature Area ================= -->
+  <section class="feature-area" style="margin-bottom:16px;">
+    <div class="container-fluid">
+      <div class="feature-inner row">
+        <div class="col-lg-2 col-md-6">
+          <div class="feature-item d-flex">
+            <i class="ti-book"></i>
+            <div class="ml-20">
+              <h4>New Classes</h4>
+              <p>
+                In the history of modern astronomy, there is probably no one greater leap forward.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <div class="feature-item d-flex">
+            <i class="ti-cup"></i>
+            <div class="ml-20">
+              <h4>Top Courses</h4>
+              <p>
+                In the history of modern astronomy, there is probably no one greater leap forward.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <div class="feature-item d-flex border-right-0">
+            <i class="ti-desktop"></i>
+            <div class="ml-20">
+              <h4>Full E-Books</h4>
+              <p>
+                In the history of modern astronomy, there is probably no one greater leap forward.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================ End Feature Area ================= -->
+
+  
+  <!-- ================ Start Internships Area ================= -->
+   <section class="pt-5 pb-9 py-md-11 bg-white">
+        <div class="container container-wd">
+            <div class="row align-items-end mb-7">
+                <div class="col-xl mb-5 mb-xl-0">
+                    <h1 class="mb-1">Featured Courses</h1>
+                    <p class="font-size-lg text-capitalize mb-0">Discover your perfect program in our courses.</p>
+                </div>
+                <div class="col-xl-auto">
+                    <!-- Nav -->
+                    <div class="btns nav justify-content-lg-start justify-content-xl-center justify-content-center tab-nav-1" id="pills-tab" role="tablist">
+                        <a class="btn-sm btn-pill me-1 mb-1 text-dark fw-medium px-6 active" id="all" data-bs-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">
+                            All Categories
+                        </a>
+                        <a class="btn-sm btn-pill me-1 mb-1 text-dark fw-medium px-6 active" id="CSE" data-bs-toggle="tab" href="#CSE" role="tab" aria-controls="CSE" aria-selected="true">
+                          CSE/IT
+                        </a>
+                        <a class="btn-sm btn-pill me-1 mb-1 text-dark fw-medium px-6 active" id="ECE" data-bs-toggle="tab" href="#ECE" role="tab" aria-controls="ECE" aria-selected="true">
+                          ECE/EEE
+                        </a>
+                        <a class="btn-sm btn-pill me-1 mb-1 text-dark fw-medium px-6 active" id="Mechanical" data-bs-toggle="tab" href="#Mechanical" role="tab" aria-controls="Mechanical" aria-selected="true">
+                          Mechanical
+                        </a>
+                        <a class="btn-sm btn-pill me-1 mb-1 text-dark fw-medium px-6 active" id="Management" data-bs-toggle="tab" href="#Management" role="tab" aria-controls="Management" aria-selected="true">
+                            Management
+                        </a>
+                        <a class="btn-sm btn-pill me-1 mb-1 text-dark fw-medium px-6 active" id="Civil" data-bs-toggle="tab" href="#Civil" role="tab" aria-controls="Civil" aria-selected="true">
+                          Civil
+                        </a>
+                    </div>
+                </div>
+            </div>
+  
+      <div class="other-feature-area tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+        <div class="internship-container">
+          <div class="feature-inner row">
+            <div class="internships-container col-lg-12" data-flickity='{"pageDots": true, "prevNextButtons": true, "cellAlign": "left", "wrapAround": true, "imagesLoaded": true}'>
+              {% for i in internships %}
+                    <div class="box-internships" id="pills-{{i.id}}">
+                      <img src="{{i.featured_image}}" alt="">
+                      <span class="mb-1 d-inline-block text-gray-800">{{i.category.name}}</span>
+                      <h3>{{i.title}}</h3>
+                      <a href="{{i.get_absolute_url}}"><button>Book Now</button></a>
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+      </div>
+
+  </section>
+  <!-- ================ End Internships Area ================= -->
+  
+  <!-- ================ Start Popular Course Area ================= -->
+  <section class="popular-course-area section-gap">
+    <div class="container-fluid">
+      <div class="row justify-content-center section-title">
+        <div class="col-lg-12 text-center">
+          <h2>
+            Popular Internships <br />
+            Available Right Now
+          </h2>
+         </div>
+            <div class="categories_right">
+              <article class="category">
+                <span class="category_icon"><img src="{%static 'img/web.png'%}" alt="" style="height:50px"></span>
+                <h5>Website Development</h5>
+                <p>Embark on a website development journey with our website development course. Learn html, css, javascript and Node.js to build dynamic, efficient web applications. Elevate your skills for a thriving tech career.</p>
+              </article>
+              <article class="category">
+                <span class="category_icon"><img src="{%static 'img/data.png'%}" alt="" style="height:50px"></span>
+                <h5>Data Science</h5>
+                <p>Dive into the world of Data Science, where analytics and insights meet. Uncover the power of data through courses covering statistics, machine learning, and data visualization for informed decision-making.  </p>
+              </article>
+              <article class="category">
+                <span class="category_icon"><img src="{%static 'img/programming.png'%}" alt="" style="height:50px"></span>
+                <h5>Programming</h5>
+                <p>Excel in programming with our diverse courses. From fundamental languages like Python and Java to advanced topics in data structures and algorithms, our programs equip you with the skills for coding excellence.</p>
+              </article>
+              <article class="category">
+                <span class="category_icon"><img src="{%static 'img/dataentry.png'%}" alt="" style="height:50px"></span>
+                <h5>Data Entry</h5>
+                <p>Hone your data entry skills with our specialized courses. Learn efficient data management, keyboarding techniques, and software proficiency, ensuring precision and speed in handling diverse data entry tasks for enhanced productivity.</p>
+              </article>
+              <article class="category">
+                <span class="category_icon"><img src="{%static 'img/ai.png'%}" alt="" style="height:50px"></span>
+                <h5>AI/ML</h5>
+                <p>Delve into the future of technology with our AI/ML courses. Explore machine learning algorithms, neural networks, and deep learning, gaining expertise to develop intelligent solutions that drive innovation in artificial intelligence.</p>
+              </article>
+              <article class="category">
+                <span class="category_icon"><img src="{%static 'img/courses.png'%}" alt="" style="height:50px"></span>
+                <h5>Core Courses</h5>
+                <p>Explore fundamental Core Courses in Computer Science, covering Operating Systems and Database Management Systems. Gain essential knowledge for a strong foundation in computer science and software development.</p>
+              </article>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ================ End Popular Course Area ================= -->
+
+
+    {% endblock %}
+
+    
